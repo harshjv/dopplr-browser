@@ -1,0 +1,25 @@
+<div id="dock-app">
+  <div class="dopplr-dock">
+    <span class="url">{{ url }}</span>
+    <button type="button" v-on:click="switchNetwork">🚀 <span class="logo">dopplr<sup>{% raw %}{{ currentNetworkName }}{% endraw %}</sup></span></button>
+  </div>
+  <div class="modal" id="dopplr-dock-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+      {% include "logo.njk" %}
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="title-logo modal-title text-center">switch network</h4>
+        </div>
+        <div class="modal-body list-group">
+          <a v-bind:class="{ active: network.name === currentNetworkName, 'list-group-item': true }" v-for="(network, index) in availableNetworks" v-on:click="selectNetwork(index)">
+            <h4 class="list-group-item-heading">{% raw %}{{ network.name }}{% endraw %}</h4>
+            <p class="list-group-item-text">{% raw %}{{ network.publicUrl }}{% endraw %}</p>
+          </a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" v-on:click="close" class="btn btn-default btn-block">close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

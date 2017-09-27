@@ -1,0 +1,55 @@
+{% extends "master.njk" %}
+
+{% block title %}Browser{% endblock %}
+
+{% block htmlAttributes %}class="browser"{% endblock %}
+
+{% block headJS %}
+<script src="/vendor.js"></script>
+{% endblock %}
+
+{% block body %}
+{% include "dock.njk" %}
+
+<iframe src="{{ url }}" id="dapp"></iframe>
+
+{% include "modal.njk" %}
+
+<script>
+window.dopplr = {
+  slug: '{{ slug }}',
+  iframeRef: $('#dapp')[0],
+  serviceUrl: '/service',
+  availableNetworks: [
+    {
+      name: 'rinkeby testnet',
+      url: 'https://rinkeby.infura.io/FdmCz73HAUeJpZwGB3Kb',
+      publicUrl: 'https://rinkeby.infura.io'
+    },
+    {
+      name: 'kovan testnet',
+      url: 'https://kovan.infura.io/FdmCz73HAUeJpZwGB3Kb',
+      publicUrl: 'https://kovan.infura.io'
+    },
+    {
+      name: 'ropsten testnet',
+      url: 'https://ropsten.infura.io/FdmCz73HAUeJpZwGB3Kb',
+      publicUrl: 'https://ropsten.infura.io'
+    },
+    {
+      name: 'mainnet',
+      url: 'https://mainnet.infura.io/FdmCz73HAUeJpZwGB3Kb',
+      publicUrl: 'https://mainnet.infura.io'
+    },
+    {
+      name: 'localhost',
+      url: 'http://localhost:8545',
+      publicUrl: 'http://localhost:8545'
+    }
+  ],
+  defaultNetworkIndex: 0
+}
+</script>
+
+<script src="/dopplr.js"></script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "master.njk" %}
+
+{% block title %}Home{% endblock %}
+
+{% block container %}
+<br>
+{% include "logo.njk" %}
+<br>
+TL;DR <a href="https://t.me/DopplrBot" target="_blank" class="btn btn-default btn-telegram"><img src="/telegram.png">t.me/DopplrBot &rarr;</a>
+<br>
+<br>
+<h4>Introduction</h4>
+<p>Dopplr is an experiment using <code>iframe</code>, reverse <code>web3</code>-injection, and <a href="https://telegram.org">Telegram</a> to bring the power of Ethereum to users <strong>without needing to install/manage a separate application or a <code>geth</code>/<code>parity</code> node.</strong></p>
+<br>
+<h4>Features</h4>
+<ul>
+  <li>Cross-platform dApp browsing</li>
+  <ul>
+    <li>Browse dApps on mobile devices</li>
+    <li>Browse dApps hosted on IPFS</li>
+  </ul>
+  <li>Send Ethers and <code>ERC-20</code> Tokens to other users via <strong>@username</strong></li>
+  <li>Off-chain lightning-fast transaction</li>
+  <ul>
+    <li>Create channels for instant and free off-chain transactions</li>
+    <li>Only opening and closing transactions of channels are recorded on-chain</li>
+  </ul>
+  <li>Password-protected <code>web3</code>-enabled reusable URLs to browse dApps</li>
+  <li>Interact with Smart Contracts</li>
+  <li>Broadcast offline-transactions</li>
+  <li>Sign/verify a document</li>
+  <li>Store/retrieve files on/from IPFS</li>
+  <li>...</li>
+</ul>
+<br>
+<h4>Security</h4>
+<ul>
+  <li>Password-encrypted Ethereum wallet</li>
+  <li>OTP verification to sign transactions</li>
+  <li>...</li>
+</ul>
+<br>
+<h4>Author</h4>
+<p><a href="mailto:harshjv@gmail.com">Harsh Vakharia &lt;harshjv@gmail.com&gt;</a></p>
+<br>
+<br>
+<br>
+{% endblock %}

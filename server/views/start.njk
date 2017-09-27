@@ -1,0 +1,79 @@
+{% extends "master.njk" %}
+
+{% block title %}Start{% endblock %}
+
+{% block htmlAttributes %}class="start"{% endblock %}
+
+{% block headJS %}
+<script>
+window.dopplr = {
+  slug: '{{ slug }}'
+}
+</script>
+<script src="/vendor.js"></script>
+{% endblock %}
+
+{% block container %}
+<div id="app">
+  <br>
+  {% include "logo.njk" %}
+  <br>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" v-bind:aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100" v-bind:style="progressStyleObject">
+      <span class="sr-only">{% raw %}{{ progress }{% endraw %}}% Complete</span>
+    </div>
+  </div>
+
+  <div v-if="phase === 0" class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Enter a strong password</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="password" v-model="password" class="form-control" placeholder="Password">
+      </div>
+      <a class="btn btn-primary btn-block" v-on:click="confirmPassword">Continue &rarr;</a>
+    </div>
+  </div>
+
+  <div v-if="phase === 1">
+    <div class="well text-center"><h4>{% raw %}{{ seed }}{% endraw %}</h4></div>
+    <a class="btn btn-primary btn-block" v-on:click="readyToConfirm">I confirm I have written the seed down! Let's continue</a>
+  </div>
+
+  <div v-if="phase === 2">
+    <div class="alert alert-success" role="alert" v-if="success === true && etherscanUrl">
+      <strong>Sent!</strong> We've sent you some test ETH (on ropsten testnet) to your address {% raw %}{{ address }}{% endraw %}. You can verify it <a v-bind:href="etherscanUrl">here on Etherscan</a>.
+    </div>
+    <div class="alert alert-warning" role="alert" v-if="success === true && !etherscanUrl">
+      <strong>Working!</strong> Sending some test ETH (on ropsten testnet) to your address {% raw %}{{ address }}{% endraw %}...
+    </div>
+    <div class="alert alert-success" role="alert" v-if="success === true">
+      <strong>Hurray!</strong> You have successfully created a wallet. You can close this window now.
+    </div>
+    <div class="alert alert-danger" role="alert" v-if="success === false">
+      <strong>Burrp!</strong> Please try again.
+    </div>
+    <div class="alert alert-info" role="alert" v-if="loading === true">
+      <strong>Working...</strong>
+    </div>
+
+    <div v-if="!loading && success !== true" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Verify your seed phrase</h3>
+      </div>
+      <div class="panel-body">
+        <form class="form">
+          <div class="form-group">
+            <textarea type="text" v-model="verifySeed" class="form-control" rows="3" placeholder="Enter your seed phrase to confirm"></textarea>
+          </div>
+          <a class="btn btn-primary btn-block" v-on:click="confirm">Verify &rarr;</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/start.js"></script>
+{% endblock %}

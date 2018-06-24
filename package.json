@@ -16,7 +16,7 @@
     "bootstrap": "^3.3.7",
     "crypto-js": "^3.1.9-1",
     "debug": "^2.6.6",
-    "eth-lightwallet": "^2.5.4",
+    "eth-lightwallet": "^3.0.1",
     "ethereumjs-util": "^5.1.1",
     "ethereumjs-wallet": "^0.6.0",
     "express": "^4.15.2",
@@ -25,7 +25,6 @@
     "multihashes": "^0.4.5",
     "node-telegram-bot-api": "^0.27.0",
     "nunjucks": "^3.0.0",
-    "raven": "^1.2.1",
     "raven-js": "^3.15.0",
     "request": "^2.81.0",
     "sha512": "0.0.1",
@@ -33,7 +32,7 @@
     "store": "^2.0.4",
     "uuid": "^3.0.1",
     "vue": "^2.3.2",
-    "web3": "^0.19.0",
+    "web3": "^0.20.6",
     "web3-provider-engine": "^12.0.3",
     "whatwg-fetch": "^2.0.3"
   },
@@ -74,5 +73,8 @@
     "gulp-rename": "^1.2.2",
     "nodemon": "^1.11.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "engines": {
+    "node": "^8.9.4"
   }
 }

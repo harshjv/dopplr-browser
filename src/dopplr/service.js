@@ -68,6 +68,11 @@ class DopplrService {
     }
   }
 
+  requestWeb3 (data, cb) {
+    // alert('allow web3?')
+    cb(null, true)
+  }
+
   executeRequest (dopplrRequestId, method, d) {
     const fn = this[method]
 
@@ -327,7 +332,8 @@ DopplrService.allowedMethods = [
   'signTransaction',
   'signMessage',
   'signPersonalMessage',
-  'rpc'
+  'rpc',
+  'requestWeb3'
 ]
 
 DopplrService.concatSignature = (v, r, s) => {

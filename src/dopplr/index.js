@@ -1,8 +1,5 @@
 /* global $ */
 
-import Raven from 'raven-js'
-Raven.config('https://0bfb39da0ded4736bbc455d8f9323fdc@sentry.io/166341').install()
-
 import store from 'store'
 import { Modal } from './modal'
 import { openModal } from './open-modal'

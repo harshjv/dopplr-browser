@@ -11,6 +11,10 @@ class Messenger {
     this.blocked = false
   }
 
+  requestWeb3 (cb) {
+    this.sendRequest('requestWeb3', null, cb)
+  }
+
   onResponse (d, srcWin) {
     if (!d) return
 

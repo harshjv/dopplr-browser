@@ -41,8 +41,6 @@ function DopplrWalletProvider ({ messenger }) {
 
         accountsCache = accounts
 
-        window.web3.eth.defaultAccount = accounts[0]
-
         cb(null, accounts)
       })
     }

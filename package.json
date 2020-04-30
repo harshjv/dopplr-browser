@@ -7,7 +7,7 @@
     "start": "node index.js",
     "build": "gulp build",
     "build:production": "NODE_ENV=production BABEL_ENV=production GULP_ENV=production gulp build",
-    "heroku-postbuild": "npm run build:production && node purge-cache.js"
+    "heroku-postbuild": "npm run build:production"
   },
   "dependencies": {
     "async": "^2.4.0",
